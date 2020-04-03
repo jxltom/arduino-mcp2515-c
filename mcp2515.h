@@ -474,47 +474,47 @@ static const struct RXBn_REGS
 void startSPI();
 void endSPI();
 
-ERROR setMode(const CANCTRL_REQOP_MODE mode);
+ERROR mcp2515_set_mode(const CANCTRL_REQOP_MODE mode);
 
-uint8_t readRegister(const REGISTER reg);
-void readRegisters(const REGISTER reg, uint8_t values[], const uint8_t n);
-void setRegister(const REGISTER reg, const uint8_t value);
-void setRegisters(const REGISTER reg, const uint8_t values[], const uint8_t n);
-void modifyRegister(const REGISTER reg, const uint8_t mask, const uint8_t data);
+uint8_t mcp2515_read_register(const REGISTER reg);
+void mcp2515_read_registers(const REGISTER reg, uint8_t values[], const uint8_t n);
+void mcp2515_set_register(const REGISTER reg, const uint8_t value);
+void mcp2515_set_registers(const REGISTER reg, const uint8_t values[], const uint8_t n);
+void mcp2515_modify_register(const REGISTER reg, const uint8_t mask, const uint8_t data);
 
-void prepareId(uint8_t *buffer, const bool ext, const uint32_t id);
+void mcp2515_prepare_id(uint8_t *buffer, const bool ext, const uint32_t id);
 
 //
 // Public functions
 //
 
-void init(const uint8_t _CS);
-ERROR reset(void);
-ERROR setConfigMode();
-ERROR setListenOnlyMode();
-ERROR setSleepMode();
-ERROR setLoopbackMode();
-ERROR setNormalMode();
-ERROR setClkOut(const CAN_CLKOUT divisor);
-ERROR setBitrate(const CAN_SPEED canSpeed);
-ERROR setBitrate_(const CAN_SPEED canSpeed, const CAN_CLOCK canClock);
-ERROR setFilterMask(const MASK num, const bool ext, const uint32_t ulData);
-ERROR setFilter(const RXF num, const bool ext, const uint32_t ulData);
-ERROR sendMessage_(const TXBn txbn, const struct can_frame *frame);
-ERROR sendMessage(const struct can_frame *frame);
-ERROR readMessage_(const RXBn rxbn, struct can_frame *frame);
-ERROR readMessage(struct can_frame *frame);
-bool checkReceive(void);
-bool checkError(void);
-uint8_t getErrorFlags(void);
-void clearRXnOVRFlags(void);
+void mcp2515_init();
+ERROR mcp2515_reset(void);
+ERROR mcp2515_set_config_mode();
+ERROR mcp2515_set_listenonly_mode();
+ERROR mcp2515_set_sleep_mode();
+ERROR mcp2515_set_loopback_mode();
+ERROR mcp2515_set_normal_mode();
+ERROR mcp2515_set_clkout(const CAN_CLKOUT divisor);
+ERROR mcp2515_set_bitrate(const CAN_SPEED canSpeed);
+ERROR mcp2515_set_bitrate_(const CAN_SPEED canSpeed, const CAN_CLOCK canClock);
+ERROR mcp2515_set_filter_mask(const MASK num, const bool ext, const uint32_t ulData);
+ERROR mcp2515_set_filter(const RXF num, const bool ext, const uint32_t ulData);
+ERROR mcp2515_send_message_(const TXBn txbn, const struct can_frame *frame);
+ERROR mcp2515_send_message(const struct can_frame *frame);
+ERROR mcp2515_read_message_(const RXBn rxbn, struct can_frame *frame);
+ERROR mcp2515_read_message(struct can_frame *frame);
+bool mcp2515_check_receive(void);
+bool mcp2515_check_error(void);
+uint8_t mcp2515_get_error_flags(void);
+void mcp2515_clear_rxnovrFlags(void);
 uint8_t getInterrupts(void);
-uint8_t getInterruptMask(void);
-void clearInterrupts(void);
-void clearTXInterrupts(void);
-uint8_t getStatus(void);
-void clearRXnOVR(void);
-void clearMERR();
-void clearERRIF();
+uint8_t mcp2515_get_interrupt_mask(void);
+void mcp2515_clear_interrupts(void);
+void mcp2515_clear_tx_interrupts(void);
+uint8_t mcp2515_get_status(void);
+void mcp2515_clear_rxnovr(void);
+void mcp2515_clear_merr();
+void mcp2515_clear_errif();
 
 #endif
