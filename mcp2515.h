@@ -1,8 +1,8 @@
 #ifndef _MCP2515_H_
 #define _MCP2515_H_
 
-#include "can.h"
 #include "spi.h"
+#include "can.h"
 
 /*
  *  Speed 8M
@@ -271,41 +271,41 @@ typedef enum
     EFLG_EWARN = (1 << 0)
 } EFLG;
 
-
-#if defined (__cplusplus)
-extern "C" {
+#if defined(__cplusplus)
+extern "C"
+{
 #endif
 
-void mcp2515_init();
-ERROR mcp2515_reset(void);
-ERROR mcp2515_set_config_mode();
-ERROR mcp2515_set_listenonly_mode();
-ERROR mcp2515_set_sleep_mode();
-ERROR mcp2515_set_loopback_mode();
-ERROR mcp2515_set_normal_mode();
-ERROR mcp2515_set_clkout(const CAN_CLKOUT divisor);
-ERROR mcp2515_set_bitrate(const CAN_SPEED canSpeed);
-ERROR mcp2515_set_bitrate_(const CAN_SPEED canSpeed, const CAN_CLOCK canClock);
-ERROR mcp2515_set_filter_mask(const MASK num, const bool ext, const uint32_t ulData);
-ERROR mcp2515_set_filter(const RXF num, const bool ext, const uint32_t ulData);
-ERROR mcp2515_send_message_(const TXBn txbn, const struct can_frame *frame);
-ERROR mcp2515_send_message(const struct can_frame *frame);
-ERROR mcp2515_read_message_(const RXBn rxbn, struct can_frame *frame);
-ERROR mcp2515_read_message(struct can_frame *frame);
-bool mcp2515_check_receive(void);
-bool mcp2515_check_error(void);
-uint8_t mcp2515_get_error_flags(void);
-void mcp2515_clear_rxnovrFlags(void);
-uint8_t getInterrupts(void);
-uint8_t mcp2515_get_interrupt_mask(void);
-void mcp2515_clear_interrupts(void);
-void mcp2515_clear_tx_interrupts(void);
-uint8_t mcp2515_get_status(void);
-void mcp2515_clear_rxnovr(void);
-void mcp2515_clear_merr();
-void mcp2515_clear_errif();
+    void mcp2515_init();
+    ERROR mcp2515_reset(void);
+    ERROR mcp2515_set_config_mode();
+    ERROR mcp2515_set_listenonly_mode();
+    ERROR mcp2515_set_sleep_mode();
+    ERROR mcp2515_set_loopback_mode();
+    ERROR mcp2515_set_normal_mode();
+    ERROR mcp2515_set_clkout(const CAN_CLKOUT divisor);
+    ERROR mcp2515_set_bitrate(const CAN_SPEED canSpeed);
+    ERROR mcp2515_set_bitrate_(const CAN_SPEED canSpeed, const CAN_CLOCK canClock);
+    ERROR mcp2515_set_filter_mask(const MASK num, const bool ext, const uint32_t ulData);
+    ERROR mcp2515_set_filter(const RXF num, const bool ext, const uint32_t ulData);
+    ERROR mcp2515_send_message_(const TXBn txbn, const struct can_frame *frame);
+    ERROR mcp2515_send_message(const struct can_frame *frame);
+    ERROR mcp2515_read_message_(const RXBn rxbn, struct can_frame *frame);
+    ERROR mcp2515_read_message(struct can_frame *frame);
+    bool mcp2515_check_receive(void);
+    bool mcp2515_check_error(void);
+    uint8_t mcp2515_get_error_flags(void);
+    void mcp2515_clear_rxnovrFlags(void);
+    uint8_t getInterrupts(void);
+    uint8_t mcp2515_get_interrupt_mask(void);
+    void mcp2515_clear_interrupts(void);
+    void mcp2515_clear_tx_interrupts(void);
+    uint8_t mcp2515_get_status(void);
+    void mcp2515_clear_rxnovr(void);
+    void mcp2515_clear_merr();
+    void mcp2515_clear_errif();
 
-#if defined (__cplusplus)
+#if defined(__cplusplus)
 }
 #endif
 

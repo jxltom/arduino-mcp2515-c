@@ -19,7 +19,7 @@ void spi_end()
     SPI.endTransaction();
 }
 
-uint8_t spi_transfer(uint8_t data) 
+uint8_t spi_transfer(uint8_t data)
 {
-	return SPI.transfer(data);
+    return SPI.transfer(data);
 }
