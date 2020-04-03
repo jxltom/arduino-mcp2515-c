@@ -6,6 +6,8 @@
 
 - TI CC2640
 
+- Linux (still in implementation)
+
 - Other MCU only by providing approprate SPI interface
 
 ## Getting Started
