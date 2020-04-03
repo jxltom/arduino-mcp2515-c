@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "mcp2515.h"
 
 static const uint8_t CANCTRL_REQOP = 0xE0;
@@ -164,11 +163,6 @@ typedef enum
     MCP_RXB1DATA = 0x76
 } REGISTER;
 
-static const uint32_t SPI_CLOCK = 10000000; // 10MHz
-
-static const int N_TXBUFFERS = 3;
-static const int N_RXBUFFERS = 2;
-
 static const struct TXBn_REGS
 {
     REGISTER CTRL;
@@ -189,79 +183,68 @@ static const struct RXBn_REGS
     {MCP_RXB0CTRL, MCP_RXB0SIDH, MCP_RXB0DATA, CANINTF_RX0IF},
     {MCP_RXB1CTRL, MCP_RXB1SIDH, MCP_RXB1DATA, CANINTF_RX1IF}};
 
-void startSPI()
-{
-    SPI.beginTransaction(SPISettings(SPI_CLOCK, MSBFIRST, SPI_MODE0));
-    digitalWrite(SPICS, LOW);
-}
-
-void endSPI()
-{
-    digitalWrite(SPICS, HIGH);
-    SPI.endTransaction();
-}
 
 uint8_t mcp2515_read_register(const REGISTER reg)
 {
-    startSPI();
-    SPI.transfer(INSTRUCTION_READ);
-    SPI.transfer(reg);
-    uint8_t ret = SPI.transfer(0x00);
-    endSPI();
+    spi_start();
+    spi_transfer(INSTRUCTION_READ);
+    spi_transfer(reg);
+    uint8_t ret = spi_transfer(0x00);
+    spi_end();
 
     return ret;
 }
 
 void mcp2515_read_registers(const REGISTER reg, uint8_t values[], const uint8_t n)
 {
-    startSPI();
-    SPI.transfer(INSTRUCTION_READ);
-    SPI.transfer(reg);
+    spi_start();
+    spi_transfer(INSTRUCTION_READ);
+    spi_transfer(reg);
     // mcp2515 has auto-increment of address-pointer
     for (uint8_t i = 0; i < n; i++)
     {
-        values[i] = SPI.transfer(0x00);
+        values[i] = spi_transfer(0x00);
     }
-    endSPI();
+    spi_end();
 }
 
 void mcp2515_set_register(const REGISTER reg, const uint8_t value)
 {
-    startSPI();
-    SPI.transfer(INSTRUCTION_WRITE);
-    SPI.transfer(reg);
-    SPI.transfer(value);
-    endSPI();
+    spi_start();
+    spi_transfer(INSTRUCTION_WRITE);
+    spi_transfer(reg);
+    spi_transfer(value);
+    spi_end();
 }
 
 void mcp2515_set_registers(const REGISTER reg, const uint8_t values[], const uint8_t n)
 {
-    startSPI();
-    SPI.transfer(INSTRUCTION_WRITE);
-    SPI.transfer(reg);
+    spi_start();
+    spi_transfer(INSTRUCTION_WRITE);
+    spi_transfer(reg);
     for (uint8_t i = 0; i < n; i++)
     {
-        SPI.transfer(values[i]);
+        spi_transfer(values[i]);
     }
-    endSPI();
+    spi_end();
 }
 
 void mcp2515_modify_register(const REGISTER reg, const uint8_t mask, const uint8_t data)
 {
-    startSPI();
-    SPI.transfer(INSTRUCTION_BITMOD);
-    SPI.transfer(reg);
-    SPI.transfer(mask);
-    SPI.transfer(data);
-    endSPI();
+    spi_start();
+    spi_transfer(INSTRUCTION_BITMOD);
+    spi_transfer(reg);
+    spi_transfer(mask);
+    spi_transfer(data);
+    spi_end();
 }
 
 uint8_t mcp2515_get_status(void)
 {
-    startSPI();
-    SPI.transfer(INSTRUCTION_READ_STATUS);
-    uint8_t i = SPI.transfer(0x00);
-    endSPI();
+    spi_start();
+    spi_transfer(INSTRUCTION_READ_STATUS);
+    uint8_t i = spi_transfer(0x00);
+    spi_end();
 
     return i;
 }
@@ -727,16 +710,17 @@ ERROR mcp2515_set_filter(const RXF num, const bool ext, const uint32_t ulData)
 
 void mcp2515_init()
 {
-    SPI.begin();
+    spi_begin();
+
     pinMode(SPICS, OUTPUT);
-    endSPI();
+    spi_end();
 }
 
 ERROR mcp2515_reset(void)
 {
-    startSPI();
-    SPI.transfer(INSTRUCTION_RESET);
-    endSPI();
+    spi_start();
+    spi_transfer(INSTRUCTION_RESET);
+    spi_end();
 
     delay(10);
 

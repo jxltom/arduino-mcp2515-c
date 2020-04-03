@@ -1,8 +1,8 @@
 #ifndef _MCP2515_H_
 #define _MCP2515_H_
 
-#include <SPI.h>
 #include "can.h"
+#include "spi.h"
 
 /*
  *  Speed 8M
@@ -169,6 +169,9 @@
 #define MCP_20MHz_33k3BPS_CFG2 (0xFF)
 #define MCP_20MHz_33k3BPS_CFG3 (0x87)
 
+#define N_TXBUFFERS 3
+#define N_RXBUFFERS 2
+
 typedef enum
 {
     MCP_20MHZ,
@@ -268,7 +271,10 @@ typedef enum
     EFLG_EWARN = (1 << 0)
 } EFLG;
 
-const uint8_t SPICS = 10;
+
+#if defined (__cplusplus)
+extern "C" {
+#endif
 
 void mcp2515_init();
 ERROR mcp2515_reset(void);
@@ -298,5 +304,9 @@ uint8_t mcp2515_get_status(void);
 void mcp2515_clear_rxnovr(void);
 void mcp2515_clear_merr();
 void mcp2515_clear_errif();
+
+#if defined (__cplusplus)
+}
+#endif
 
 #endif
