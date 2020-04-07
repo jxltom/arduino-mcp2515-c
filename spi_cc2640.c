@@ -1,6 +1,6 @@
-#if SPI_MODULE == 2
+#include "spi.h"
 
-#include "spi_cc2640.h"
+#if defined(SPI_CC2640)
 
 static SPI_Handle spiHandle = NULL;
 static SPI_Params spiParams;

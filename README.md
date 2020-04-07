@@ -9,13 +9,7 @@
 
 ## Getting Started
 
-- Adjust ```spi.h``` to your platform by ```#define SPI_MODULE```, and the supported values are list in the following table.
-
-| --- | -------- |
-| Num | Platform |
-| 1   | Arduio   |
-| 2   | CC2640   |
-| --- | -------- |
+- Adjust ```spi.h``` to your platform by ```#define SPI_ARDUINO``` or ```#define SPI_CC2640```.
 
 ## Development
 

@@ -1,8 +1,9 @@
-#if SPI_MODULE == 1
+#include "spi.h"
+
+#if defined(SPI_ARDUINO)
 
 #include <Arduino.h>
 #include <SPI.h>
-#include "spi_arduino.h"
 
 void spi_begin()
 {

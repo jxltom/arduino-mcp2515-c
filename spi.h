@@ -1,11 +1,11 @@
 #ifndef _SPI_H_
 #define _SPI_H_
 
-#define SPI_MODULE 1
+#define SPI_ARDUINO
 
-#if SPI_MODULE == 1
+#if defined(SPI_ARDUINO)
 #include "spi_arduino.h"
-#elif SPI_MODULE == 2
+#elif defined(SPI_CC2640)
 #include "spi_cc2640.h"
 #endif
 
