@@ -1,3 +1,5 @@
+#if SPI_MODULE == 2
+
 #include "spi_cc2640.h"
 
 static SPI_Handle spiHandle = NULL;
@@ -52,3 +54,5 @@ void spi_start()
 {
     PIN_setOutputValue(spiCsPin, SPICS, 0);
 }
+
+#endif

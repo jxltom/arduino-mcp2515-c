@@ -1,3 +1,5 @@
+#if SPI_MODULE == 1
+
 #include <Arduino.h>
 #include <SPI.h>
 #include "spi_arduino.h"
@@ -23,3 +25,5 @@ uint8_t spi_transfer(uint8_t data)
 {
     return SPI.transfer(data);
 }
+
+#endif
