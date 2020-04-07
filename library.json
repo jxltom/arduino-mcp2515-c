@@ -1,0 +1,5 @@
+{
+    "build": {
+        "srcFilter": "+<*> -<spi_cc2640.c>"
+    }
+}
