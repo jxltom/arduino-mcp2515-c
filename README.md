@@ -8,7 +8,7 @@
 
 - Linux (still in implementation)
 
-- Other MCU only by providing approprate SPI interface
+- Other MCU only by providing appropriate SPI interface
 
 ## Getting Started
 
