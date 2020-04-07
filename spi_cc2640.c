@@ -38,9 +38,9 @@ uint8_t spi_transfer(const uint8_t *transmitBufferPointer)
     masterTransaction.rxBuf = receiveBufferPointer;
     if (SPI_transfer(spiHandle, &masterTransaction))
     {
-        return receiveBufferPointer
+        return receiveBufferPointer;
     }
-    return 0
+    return 0;
 }
 
 void spi_end()
