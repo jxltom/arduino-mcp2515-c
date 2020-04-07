@@ -1,9 +1,9 @@
-#include "spi.h"
-
+#include "config.h"
 #if defined(SPI_ARDUINO)
 
 #include <Arduino.h>
 #include <SPI.h>
+#include "spi_arduino.h"
 
 void spi_begin()
 {

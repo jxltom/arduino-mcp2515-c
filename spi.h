@@ -1,7 +1,7 @@
-#define SPI_ARDUINO
-
 #ifndef _SPI_H_
 #define _SPI_H_
+
+#include "config.h"
 
 #if defined(SPI_ARDUINO)
 #include "spi_arduino.h"

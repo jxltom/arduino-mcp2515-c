@@ -9,7 +9,7 @@
 
 ## Getting Started
 
-- Adjust ```spi.h``` to your platform by ```#define SPI_ARDUINO``` or ```#define SPI_CC2640```.
+- Adjust ```config.h``` to your platform by ```#define SPI_ARDUINO``` or ```#define SPI_CC2640```.
 
 ## Development
 

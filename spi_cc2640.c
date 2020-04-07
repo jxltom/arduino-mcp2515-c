@@ -1,6 +1,7 @@
-#include "spi.h"
-
+#include "config.h"
 #if defined(SPI_CC2640)
+
+#include "spi_cc2640.h"
 
 static SPI_Handle spiHandle = NULL;
 static SPI_Params spiParams;
