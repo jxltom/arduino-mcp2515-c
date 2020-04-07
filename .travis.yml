@@ -5,9 +5,6 @@ addons:
   apt:
     packages:
       - python3-pip
-    sources:
-      - llvm-toolchain-trusty-5.0
-      - key_url: 'http://apt.llvm.org/llvm-snapshot.gpg.key'
 
 script:
   - build_main_platforms
