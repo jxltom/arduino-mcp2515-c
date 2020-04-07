@@ -1,7 +1,6 @@
 #ifndef _SPI_H_
 #define _SPI_H_
 
-
 #define SPI_MODULE 1
 
 #if SPI_MODULE == 1
