@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-static const uint32_t SPI_CLOCK = 10000000; // 10MHz
+const uint32_t SPI_CLOCK = 10000000; // 10MHz
 const uint8_t SPICS = 10;
 
 #if defined(__cplusplus)
