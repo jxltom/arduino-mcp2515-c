@@ -9,4 +9,7 @@
 #include "spi_cc2640.h"
 #endif
 
+const unsigned char SPI_DUMMY_INT = 0x00;
+const unsigned char SPI_TRANSFER_LEN = 1;
+
 #endif

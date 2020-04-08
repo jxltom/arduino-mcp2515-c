@@ -3,9 +3,6 @@
 
 #include <ti/drivers/PIN.h>
 
-const uint8_t SPI_DUMMY_INT = 0x00;
-const uint8_t SPI_TRANSFER_LEN = 1;
-
 const uint32_t SPI_CLOCK = 5000000; // 5MHz
 const uint8_t SPICS = IOID_20;
 

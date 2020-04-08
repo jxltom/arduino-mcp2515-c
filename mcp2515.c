@@ -188,7 +188,7 @@ uint8_t mcp2515_read_register(const REGISTER reg)
     spi_start();
     spi_transfer(INSTRUCTION_READ);
     spi_transfer(reg);
-    uint8_t ret = spi_transfer(0x00);
+    uint8_t ret = spi_transfer(SPI_DUMMY_INT);
     spi_end();
 
     return ret;
@@ -202,7 +202,7 @@ void mcp2515_read_registers(const REGISTER reg, uint8_t values[], const uint8_t 
     // mcp2515 has auto-increment of address-pointer
     for (uint8_t i = 0; i < n; i++)
     {
-        values[i] = spi_transfer(0x00);
+        values[i] = spi_transfer(SPI_DUMMY_INT);
     }
     spi_end();
 }
@@ -242,7 +242,7 @@ uint8_t mcp2515_get_status(void)
 {
     spi_start();
     spi_transfer(INSTRUCTION_READ_STATUS);
-    uint8_t i = spi_transfer(0x00);
+    uint8_t i = spi_transfer(SPI_DUMMY_INT);
     spi_end();
 
     return i;
