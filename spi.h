@@ -12,4 +12,18 @@
 const unsigned char SPI_DUMMY_INT = 0x00;
 const unsigned char SPI_TRANSFER_LEN = 1;
 
+#if defined(__cplusplus)
+extern "C"
+{
+#endif
+
+    void spi_init();
+    void spi_start();
+    void spi_end();
+    unsigned char spi_transfer(const unsigned char data);
+
+#if defined(__cplusplus)
+}
+#endif
+
 #endif

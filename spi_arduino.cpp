@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 #include <SPI.h>
-#include "spi_arduino.h"
+#include "spi.h"
 
 void spi_init()
 {
@@ -24,7 +24,7 @@ void spi_end()
     SPI.endTransaction();
 }
 
-uint8_t spi_transfer(uint8_t data)
+unsigned char spi_transfer(const unsigned char data)
 {
     return SPI.transfer(data);
 }

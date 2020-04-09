@@ -3,7 +3,7 @@
 
 #include <ti/drivers/PIN.h>
 #include <ti/drivers/SPI.h>
-#include "spi_cc2640.h"
+#include "spi.h"
 
 static SPI_Handle spiHandle = NULL;
 static SPI_Params spiParams;
@@ -33,17 +33,17 @@ void spi_init(void)
     spiCsPin = PIN_open(&spiCsPinState, spiCsPinConfigTable);
 }
 
-uint8_t spi_transfer(const uint8_t *transmitBufferPointer)
+unsigned char spi_transfer(const unsigned char data)
 {
     SPI_Transaction masterTransaction;
-    uint8_t receiveBufferPointer = 0;
+    uint8_t receiveData = 0;
     masterTransaction.count = SPI_TRANSFER_LEN;
-    masterTransaction.txBuf = transmitBufferPointer;
+    masterTransaction.txBuf = (void *)&data;
     masterTransaction.arg = NULL;
-    masterTransaction.rxBuf = receiveBufferPointer;
+    masterTransaction.rxBuf = &receiveData;
     if (SPI_transfer(spiHandle, &masterTransaction))
     {
-        return receiveBufferPointer;
+        return receiveData;
     }
     return 0;
 }

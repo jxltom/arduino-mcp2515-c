@@ -6,9 +6,4 @@
 const uint32_t SPI_CLOCK = 5000000; // 5MHz
 const uint8_t SPICS = IOID_20;
 
-void spi_init();
-void spi_start();
-void spi_end();
-uint8_t spi_transfer(uint8_t data);
-
 #endif
