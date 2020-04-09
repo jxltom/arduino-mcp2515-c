@@ -710,8 +710,6 @@ ERROR mcp2515_set_filter(const RXF num, const bool ext, const uint32_t ulData)
 void mcp2515_init()
 {
     spi_begin();
-
-    pinMode(SPICS, OUTPUT);
     spi_end();
 }
 

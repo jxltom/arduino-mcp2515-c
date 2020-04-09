@@ -8,6 +8,8 @@
 void spi_begin()
 {
     SPI.begin();
+
+    pinMode(SPICS, OUTPUT);
 }
 
 void spi_start()
