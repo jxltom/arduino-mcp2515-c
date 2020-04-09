@@ -4,18 +4,29 @@
 
 - Arduino
 - TI CC2640
-- Linux (still in implementation)
-- Other MCU by providing appropriate SPI interface
+- Linux (work in process)
+- Supporting on other platforms by implementing appropriate SPI interface are welcomed!
 
 ## Getting Started
 
-- Adjust ```config.h``` to your platform by ```#define SPI_ARDUINO``` or ```#define SPI_CC2640```.
+Adjust ```config.h``` to your platform by ```#define SPI_ARDUINO``` or ```#define SPI_CC2640```.
 
 ## Development
 
 - Install PlatformIO
 
-- Build by ```pipenv run build```.
+- Build by ```pipenv run build```
+
+### SPI Interface
+
+This library supports any MCU only if SPI driver is implemented according to following interface.
+
+```
+void spi_init();
+void spi_start();
+void spi_end();
+unsigned char spi_transfer(unsigned char data);
+```
 
 ### Issues
 
