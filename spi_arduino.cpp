@@ -5,7 +5,7 @@
 #include <SPI.h>
 #include "spi_arduino.h"
 
-void spi_begin()
+void spi_init()
 {
     SPI.begin();
 

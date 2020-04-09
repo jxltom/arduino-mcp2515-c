@@ -11,7 +11,7 @@ static PIN_Config spiCsPinConfigTable[] = {
     SPICS | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MIN, PIN_TERMINATE};
 
 
-void spi_begin(void)
+void spi_init(void)
 {
     SPI_init();
 

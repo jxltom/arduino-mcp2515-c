@@ -11,7 +11,7 @@ extern "C"
 {
 #endif
 
-    void spi_begin();
+    void spi_init();
     void spi_start();
     void spi_end();
     uint8_t spi_transfer(uint8_t data);
