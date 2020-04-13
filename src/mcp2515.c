@@ -1,3 +1,4 @@
+#include <string.h>
 #include "mcp2515.h"
 
 static const uint8_t CANCTRL_REQOP = 0xE0;
