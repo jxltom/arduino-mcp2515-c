@@ -1,8 +1,8 @@
 #ifndef _MCP2515_H_
 #define _MCP2515_H_
 
-#include "spi.h"
-#include "util.h"
+#include "spi/spi.h"
+#include "util/util.h"
 #include "can.h"
 
 /*
