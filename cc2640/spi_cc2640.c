@@ -1,4 +1,4 @@
-#include "config.h"
+#include "../config.h"
 #if defined(PLATFORM_CC2640)
 
 #include <ti/drivers/PIN.h>

@@ -1,4 +1,4 @@
-#include "config.h"
+#include "../config.h"
 #if defined(PLATFORM_ARDUINO)
 
 #include <Arduino.h>
