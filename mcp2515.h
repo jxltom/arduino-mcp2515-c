@@ -289,10 +289,10 @@ extern "C"
     ERROR mcp2515_set_bitrate_(const CAN_SPEED canSpeed, const CAN_CLOCK canClock);
     ERROR mcp2515_set_filter_mask(const MASK num, const bool ext, const uint32_t ulData);
     ERROR mcp2515_set_filter(const RXF num, const bool ext, const uint32_t ulData);
-    ERROR mcp2515_send_message_(const TXBn txbn, const struct can_frame *frame);
-    ERROR mcp2515_send_message(const struct can_frame *frame);
-    ERROR mcp2515_read_message_(const RXBn rxbn, struct can_frame *frame);
-    ERROR mcp2515_read_message(struct can_frame *frame);
+    ERROR mcp2515_send_message_(const TXBn txbn, const can_frame *frame);
+    ERROR mcp2515_send_message(const can_frame *frame);
+    ERROR mcp2515_read_message_(const RXBn rxbn, can_frame *frame);
+    ERROR mcp2515_read_message(can_frame *frame);
     bool mcp2515_check_receive(void);
     bool mcp2515_check_error(void);
     uint8_t mcp2515_get_error_flags(void);

@@ -768,7 +768,7 @@ ERROR mcp2515_reset(void)
     return ERROR_OK;
 }
 
-ERROR mcp2515_send_message_(const TXBn txbn, const struct can_frame *frame)
+ERROR mcp2515_send_message_(const TXBn txbn, const can_frame *frame)
 {
     if (frame->can_dlc > CAN_MAX_DLEN)
     {
@@ -801,7 +801,7 @@ ERROR mcp2515_send_message_(const TXBn txbn, const struct can_frame *frame)
     return ERROR_OK;
 }
 
-ERROR mcp2515_send_message(const struct can_frame *frame)
+ERROR mcp2515_send_message(const can_frame *frame)
 {
     if (frame->can_dlc > CAN_MAX_DLEN)
     {
@@ -823,7 +823,7 @@ ERROR mcp2515_send_message(const struct can_frame *frame)
     return ERROR_ALLTXBUSY;
 }
 
-ERROR mcp2515_read_message_(const RXBn rxbn, struct can_frame *frame)
+ERROR mcp2515_read_message_(const RXBn rxbn, can_frame *frame)
 {
     const struct RXBn_REGS *rxb = &RXB[rxbn];
 
@@ -863,7 +863,7 @@ ERROR mcp2515_read_message_(const RXBn rxbn, struct can_frame *frame)
     return ERROR_OK;
 }
 
-ERROR mcp2515_read_message(struct can_frame *frame)
+ERROR mcp2515_read_message(can_frame *frame)
 {
     ERROR rc;
     uint8_t stat = mcp2515_get_status();

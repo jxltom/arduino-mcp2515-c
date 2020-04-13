@@ -2,8 +2,8 @@
 #include <mcp2515.h>
 
 
-struct can_frame canMsg1;
-struct can_frame canMsg2;
+can_frame canMsg1;
+can_frame canMsg2;
 
 void setup() {
   canMsg1.can_id  = 0x0F6;

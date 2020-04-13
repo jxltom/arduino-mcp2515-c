@@ -1,7 +1,7 @@
 #include <SPI.h>
 #include <mcp2515.h>
 
-struct can_frame canMsg;
+can_frame canMsg;
 int cntr = 0;
 unsigned long oldTime = 0;
 

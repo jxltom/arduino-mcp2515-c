@@ -2,7 +2,7 @@
 #include <mcp2515.h>
 
 
-struct can_frame canMsg;
+can_frame canMsg;
 
 void setup() {
   Serial.begin(115200);
