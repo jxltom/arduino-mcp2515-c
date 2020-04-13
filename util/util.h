@@ -9,4 +9,6 @@
 #include "util_cc2640.h"
 #endif
 
+unsigned long current_millis();
+
 #endif
