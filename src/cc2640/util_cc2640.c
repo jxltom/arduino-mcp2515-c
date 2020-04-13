@@ -8,7 +8,7 @@ unsigned long util_millis() {
 }
 
 void util_delay(unsigned int ms) {
-    return 0;
+    return;
 }
 
 #endif
