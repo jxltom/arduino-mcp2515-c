@@ -1,5 +1,5 @@
 #include "config.h"
-#if defined(SPI_ARDUINO)
+#if defined(PLATFORM_ARDUINO)
 
 #include <Arduino.h>
 #include <SPI.h>

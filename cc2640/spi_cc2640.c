@@ -1,5 +1,5 @@
 #include "config.h"
-#if defined(SPI_CC2640)
+#if defined(PLATFORM_CC2640)
 
 #include <ti/drivers/PIN.h>
 #include <ti/drivers/SPI.h>
