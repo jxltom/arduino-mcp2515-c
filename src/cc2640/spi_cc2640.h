@@ -3,7 +3,7 @@
 
 #include <ti/devices/cc26x0r2/driverlib/ioc.h>
 
-const uint32_t SPI_CLOCK = 5000000; // 5MHz
-const uint8_t SPICS = IOID_20;
+#define SPI_CLOCK 5000000  // 5MHz
+#define SPICS IOID_20
 
 #endif

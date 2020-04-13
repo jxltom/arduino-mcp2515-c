@@ -9,8 +9,8 @@
 #include "cc2640/spi_cc2640.h"
 #endif
 
-const unsigned char SPI_DUMMY_INT = 0x00;
-const unsigned char SPI_TRANSFER_LEN = 1;
+#define SPI_DUMMY_INT 0x00
+#define SPI_TRANSFER_LEN 1
 
 #if defined(__cplusplus)
 extern "C"
