@@ -3,7 +3,7 @@
 
 #include <ti/drivers/PIN.h>
 #include <ti/drivers/SPI.h>
-#include "spi.h"
+#include "../spi.h"
 
 static SPI_Handle spiHandle = NULL;
 static SPI_Params spiParams;

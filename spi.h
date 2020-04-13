@@ -4,9 +4,9 @@
 #include "config.h"
 
 #if defined(PLATFORM_ARDUINO)
-#include "spi_arduino.h"
+#include "arduino/spi_arduino.h"
 #elif defined(PLATFORM_CC2640)
-#include "spi_cc2640.h"
+#include "cc2640/spi_cc2640.h"
 #endif
 
 const unsigned char SPI_DUMMY_INT = 0x00;

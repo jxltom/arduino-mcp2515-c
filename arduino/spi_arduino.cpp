@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 #include <SPI.h>
-#include "spi.h"
+#include "../spi.h"
 
 void spi_init()
 {
