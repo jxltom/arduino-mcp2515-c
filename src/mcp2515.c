@@ -300,7 +300,7 @@ ERROR mcp2515_set_bitrate(const CAN_SPEED canSpeed)
     return mcp2515_set_bitrate_(canSpeed, MCP_16MHZ);
 }
 
-ERROR mcp2515_set_bitrate_(const CAN_SPEED canSpeed, CAN_CLOCK canClock)
+ERROR mcp2515_set_bitrate_(const CAN_SPEED canSpeed, const CAN_CLOCK canClock)
 {
     ERROR error = mcp2515_set_config_mode();
     if (error != ERROR_OK)
