@@ -252,9 +252,9 @@ ERROR mcp2515_set_mode(const CANCTRL_REQOP_MODE mode)
 {
     mcp2515_modify_register(MCP_CANCTRL, CANCTRL_REQOP, mode);
 
-    unsigned long endTime = current_millis() + 10;
+    unsigned long endTime = util_millis() + 10;
     bool modeMatch = false;
-    while (current_millis() < endTime)
+    while (util_millis() < endTime)
     {
         uint8_t newmode = mcp2515_read_register(MCP_CANSTAT);
         newmode &= CANSTAT_OPMOD;
@@ -719,7 +719,7 @@ ERROR mcp2515_reset(void)
     spi_transfer(INSTRUCTION_RESET);
     spi_end();
 
-    delay(10);
+    util_delay(10);
 
     uint8_t zeros[14];
     memset(zeros, 0, sizeof(zeros));

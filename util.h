@@ -14,7 +14,8 @@ extern "C"
 {
 #endif
 
-    unsigned long current_millis();
+    unsigned long util_millis();
+    void util_delay(unsigned int ms);
 
 #if defined(__cplusplus)
 }

@@ -45,5 +45,5 @@ void loop() {
 
   Serial.println("Messages sent");
   
-  delay(100);
+  util_delay(100);
 }
