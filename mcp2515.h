@@ -2,6 +2,7 @@
 #define _MCP2515_H_
 
 #include "spi.h"
+#include "util.h"
 #include "can.h"
 
 /*

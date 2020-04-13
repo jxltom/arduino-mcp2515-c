@@ -3,9 +3,9 @@
 
 #include "config.h"
 
-#if defined(SPI_ARDUINO)
+#if defined(PLATFORM_ARDUINO)
 #include "spi_arduino.h"
-#elif defined(SPI_CC2640)
+#elif defined(PLATFORM_CC2640)
 #include "spi_cc2640.h"
 #endif
 

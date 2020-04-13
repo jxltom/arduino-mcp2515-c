@@ -1,6 +1,6 @@
 #ifndef _CONFIG_H_
 #define _CONFIG_H_
 
-#define SPI_ARDUINO
+#define PLATFORM_ARDUINO
 
 #endif

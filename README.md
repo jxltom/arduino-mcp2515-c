@@ -5,11 +5,11 @@
 - Arduino
 - TI CC2640
 - Linux (work in process)
-- Supporting on other platforms by implementing appropriate SPI interface are welcomed!
+- Supporting on other platforms by implementing appropriate SPI and Util interface are welcomed!
 
 ## Getting Started
 
-Adjust ```config.h``` to your platform by ```#define SPI_ARDUINO``` or ```#define SPI_CC2640```.
+Adjust ```config.h``` to your platform by ```#define PLATFORM_ARDUINO``` or ```#define PLATFORM_CC2640```.
 
 ## Development
 
@@ -17,9 +17,9 @@ Adjust ```config.h``` to your platform by ```#define SPI_ARDUINO``` or ```#defin
 
 - Build by ```pipenv run build```
 
-### SPI Interface
+### SPI and Util Interface
 
-This library supports any MCU only if SPI driver is implemented according to following interface.
+This library supports any MCU only if SPI and Util is implemented according to following interface.
 
 ```
 void spi_init();
