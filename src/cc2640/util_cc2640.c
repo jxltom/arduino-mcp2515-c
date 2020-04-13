@@ -3,4 +3,12 @@
 
 #include "../util.h"
 
+unsigned long util_millis() {
+    return 0;
+}
+
+void util_delay(unsigned int ms) {
+    return 0;
+}
+
 #endif
