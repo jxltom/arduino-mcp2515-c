@@ -6,12 +6,15 @@
 #include <ti/sysbios/knl/Clock.h>
 #include "../util.h"
 
-unsigned long util_millis() {
-unsigned long util_msecs() {
+unsigned long util_usecs() {
     Seconds_Time ts;
     Seconds_getTime(&ts);
-    uint64_t milliseconds = (ts.secs * 1000) + (ts.nsecs / 1000000);
+    uint64_t milliseconds = (ts.secs * 1000000) + (ts.nsecs / 1000);
     return (unsigned long) milliseconds;
+}
+
+unsigned long util_msecs() {
+    return util_usecs() / 1000;
 }
 
 void util_delay(unsigned int ms) {
