@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include "../util.h"
 
-unsigned long util_millis() {
+unsigned long util_msecs() {
     return millis();
 }
 

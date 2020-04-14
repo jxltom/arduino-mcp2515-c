@@ -7,6 +7,7 @@
 #include "../util.h"
 
 unsigned long util_millis() {
+unsigned long util_msecs() {
     Seconds_Time ts;
     Seconds_getTime(&ts);
     uint64_t milliseconds = (ts.secs * 1000) + (ts.nsecs / 1000000);
