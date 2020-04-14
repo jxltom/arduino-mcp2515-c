@@ -36,14 +36,16 @@ void spi_init(void)
 unsigned char spi_transfer(const unsigned char data)
 {
     SPI_Transaction masterTransaction;
-    uint8_t receiveData = 0;
+    uint8_t rxData = 0;
+
     masterTransaction.count = SPI_TRANSFER_LEN;
-    masterTransaction.txBuf = (void *)&data;
+    masterTransaction.txBuf = &data;
+    masterTransaction.rxBuf = &rxData;
     masterTransaction.arg = NULL;
-    masterTransaction.rxBuf = &receiveData;
+
     if (SPI_transfer(spiHandle, &masterTransaction))
     {
-        return receiveData;
+        return rxData;
     }
     return 0;
 }
