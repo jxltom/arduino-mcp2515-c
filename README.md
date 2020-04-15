@@ -21,14 +21,14 @@ Adjust ```config.h``` to your platform by ```#define PLATFORM_ARDUINO``` or ```#
 
 This library supports any MCU only if SPI and Util is implemented according to following interface.
 
-```
+```c
 void spi_init();
 void spi_start();
 void spi_end();
 unsigned char spi_transfer(unsigned char data);
 ```
 
-```
+```c
 unsigned long util_msecs();
 void util_delay(unsigned int ms);
 ```
