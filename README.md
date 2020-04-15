@@ -28,6 +28,11 @@ void spi_end();
 unsigned char spi_transfer(unsigned char data);
 ```
 
+```
+unsigned long util_msecs();
+void util_delay(unsigned int ms);
+```
+
 ### Issues
 
 - The project's parent directory should be emtpy for using PlatformIO, otherwise PlatformIO will build all other directories as libraries which makes compilation process very slow.
