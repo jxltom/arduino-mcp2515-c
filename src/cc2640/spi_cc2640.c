@@ -34,7 +34,7 @@ void spi_init(void)
     spiCsPin = PIN_open(&spiCsPinState, spiCsPinConfigTable);
 }
 
-uint8_t spi_transfer(const uint8_t data);
+uint8_t spi_transfer(const uint8_t data)
 {
     SPI_Transaction masterTransaction;
     uint8_t rxData = 0;
