@@ -7,6 +7,8 @@
 #include "arduino/spi_arduino.h"
 #elif defined(PLATFORM_CC2640)
 #include "cc2640/spi_cc2640.h"
+#elif defined(PLATFORM_CC2642)
+#include "cc2642/spi_cc2642.h"
 #endif
 
 #define SPI_DUMMY_INT 0x00

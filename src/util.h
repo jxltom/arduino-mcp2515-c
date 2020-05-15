@@ -7,6 +7,8 @@
 #include "arduino/util_arduino.h"
 #elif defined(PLATFORM_CC2640)
 #include "cc2640/util_cc2640.h"
+#elif defined(PLATFORM_CC2642)
+#include "cc2642/util_cc2642.h"
 #endif
 
 #if defined(__cplusplus)
