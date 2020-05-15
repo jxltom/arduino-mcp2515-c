@@ -6,7 +6,7 @@
 #if defined(PLATFORM_ARDUINO)
 #include "arduino/util_arduino.h"
 #elif defined(PLATFORM_CC2640) || defined(PLATFORM_CC2642)
-#include "cc2642/util_cc264x.h"
+#include "cc264x/util_cc264x.h"
 #endif
 
 #if defined(__cplusplus)
