@@ -1,6 +1,7 @@
 #include "../config.h"
 #if defined(PLATFORM_CC2640)
 
+#include <stdint.h>
 #include <ti/drivers/PIN.h>
 #include <ti/drivers/SPI.h>
 #include "../spi.h"
@@ -33,7 +34,7 @@ void spi_init(void)
     spiCsPin = PIN_open(&spiCsPinState, spiCsPinConfigTable);
 }
 
-unsigned char spi_transfer(const unsigned char data)
+uint8_t spi_transfer(const uint8_t data)
 {
     SPI_Transaction masterTransaction;
     uint8_t rxData = 0;

@@ -16,8 +16,8 @@ extern "C"
 {
 #endif
 
-    unsigned long util_msecs();
-    void util_delay(unsigned int ms);
+    uint64_t util_msecs();
+    void util_delay(uint32_t ms);
 
 #if defined(__cplusplus)
 }

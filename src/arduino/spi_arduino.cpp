@@ -24,7 +24,7 @@ void spi_end()
     SPI.endTransaction();
 }
 
-unsigned char spi_transfer(const unsigned char data)
+uint8_t spi_transfer(const uint8_t data)
 {
     return SPI.transfer(data);
 }

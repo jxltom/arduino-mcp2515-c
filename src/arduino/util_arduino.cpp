@@ -4,11 +4,11 @@
 #include <Arduino.h>
 #include "../util.h"
 
-unsigned long util_msecs() {
+uint64_t util_msecs() {
     return millis();
 }
 
-void util_delay(unsigned int ms) {
+void util_delay(uint32_t ms) {
     return delay(ms);
 }
 

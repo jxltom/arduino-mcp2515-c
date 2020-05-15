@@ -22,7 +22,7 @@ extern "C"
     void spi_init();
     void spi_start();
     void spi_end();
-    unsigned char spi_transfer(const unsigned char data);
+    uint8_t spi_transfer(const uint8_t data);
 
 #if defined(__cplusplus)
 }
