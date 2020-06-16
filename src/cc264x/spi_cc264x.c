@@ -1,5 +1,5 @@
 #include "../config.h"
-#if defined(PLATFORM_CC2640)
+#if defined(PLATFORM_CC2640) || defined(PLATFORM_CC2642)
 
 #include <stdint.h>
 #include <ti/drivers/PIN.h>
