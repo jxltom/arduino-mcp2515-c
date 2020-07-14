@@ -9,7 +9,7 @@
 
 ## Getting Started
 
-Adjust ```config.h``` to your platform by ```#define PLATFORM_ARDUINO``` or ```#define PLATFORM_CC2640``` or ```#define PLATFORM_CC2642```.
+Add ```wjcan_hal.h``` in your application and define platform such as by ```#define PLATFORM_ARDUINO``` or ```#define PLATFORM_CC2640``` or ```#define PLATFORM_CC2642```.
 
 ## Development
 
