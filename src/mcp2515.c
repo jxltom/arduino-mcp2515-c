@@ -737,18 +737,18 @@ ERROR mcp2515_reset(void)
     // meet filter criteria. RXF0 is applied for RXB0, RXF1 is applied for RXB1
     mcp2515_modify_register(MCP_RXB0CTRL,
                             RXBnCTRL_RXM_MASK | RXB0CTRL_BUKT | RXB0CTRL_FILHIT_MASK,
-                            RXBnCTRL_RXM_STDEXT | RXB0CTRL_BUKT | RXB0CTRL_FILHIT);
+                            RXBnCTRL_RXM_STDEXT | 0 | RXB0CTRL_FILHIT);
     mcp2515_modify_register(MCP_RXB1CTRL,
                             RXBnCTRL_RXM_MASK | RXB1CTRL_FILHIT_MASK,
                             RXBnCTRL_RXM_STDEXT | RXB1CTRL_FILHIT);
 
     // clear filters and masks
-    // do not filter any standard frames for RXF0 used by RXB0
+    // do not filter any extended frames for RXF0 used by RXB0
     // do not filter any extended frames for RXF1 used by RXB1
     RXF filters[] = {RXF0, RXF1, RXF2, RXF3, RXF4, RXF5};
     for (int i = 0; i < 6; i++)
     {
-        bool ext = (i == 1);
+        bool ext = (i == 0) || (i == 1);
         ERROR result = mcp2515_set_filter(filters[i], ext, 0);
         if (result != ERROR_OK)
         {
