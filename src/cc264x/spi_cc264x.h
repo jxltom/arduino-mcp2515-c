@@ -7,7 +7,7 @@
 #include <ti/devices/cc13x2_cc26x2/driverlib/ioc.h>
 #endif
 
-#define SPI_CLOCK 5000000  // 5MHz
+#define SPI_CLOCK 10000000  // 10MHz
 #define SPICS IOID_20
 
 #endif
