@@ -183,6 +183,7 @@ static const struct RXBn_REGS
 } RXB[N_RXBUFFERS] = {
     {MCP_RXB0CTRL, MCP_RXB0SIDH, MCP_RXB0DATA, CANINTF_RX0IF},
     {MCP_RXB1CTRL, MCP_RXB1SIDH, MCP_RXB1DATA, CANINTF_RX1IF}};
+uint8_t mcp2515_rx_index = 0;
 
 uint8_t mcp2515_read_register(const REGISTER reg)
 {
@@ -737,7 +738,7 @@ ERROR mcp2515_reset(void)
     // meet filter criteria. RXF0 is applied for RXB0, RXF1 is applied for RXB1
     mcp2515_modify_register(MCP_RXB0CTRL,
                             RXBnCTRL_RXM_MASK | RXB0CTRL_BUKT | RXB0CTRL_FILHIT_MASK,
-                            RXBnCTRL_RXM_STDEXT | 0 | RXB0CTRL_FILHIT);
+                            RXBnCTRL_RXM_STDEXT | RXB0CTRL_BUKT | RXB0CTRL_FILHIT);
     mcp2515_modify_register(MCP_RXB1CTRL,
                             RXBnCTRL_RXM_MASK | RXB1CTRL_FILHIT_MASK,
                             RXBnCTRL_RXM_STDEXT | RXB1CTRL_FILHIT);
@@ -748,7 +749,7 @@ ERROR mcp2515_reset(void)
     RXF filters[] = {RXF0, RXF1, RXF2, RXF3, RXF4, RXF5};
     for (int i = 0; i < 6; i++)
     {
-        bool ext = (i == 0) || (i == 1);
+        bool ext = (i == 1);
         ERROR result = mcp2515_set_filter(filters[i], ext, 0);
         if (result != ERROR_OK)
         {
@@ -859,8 +860,6 @@ ERROR mcp2515_read_message_(const RXBn rxbn, can_frame *frame)
 
     mcp2515_read_registers(rxb->DATA, frame->data, dlc);
 
-    mcp2515_modify_register(MCP_CANINTF, rxb->CANINTF_RXnIF, 0);
-
     return ERROR_OK;
 }
 
@@ -869,13 +868,19 @@ ERROR mcp2515_read_message(can_frame *frame)
     ERROR rc;
     uint8_t stat = mcp2515_get_status();
 
-    if (stat & STAT_RX0IF)
+    if (stat & STAT_RX0IF && mcp2515_rx_index == 0)
     {
         rc = mcp2515_read_message_(RXB0, frame);
+        if (mcp2515_get_status() & STAT_RX1IF){
+            mcp2515_rx_index = 1;
+        }
+        mcp2515_modify_register(MCP_CANINTF, CANINTF_RX0IF, 0);
     }
     else if (stat & STAT_RX1IF)
     {
         rc = mcp2515_read_message_(RXB1, frame);
+        mcp2515_modify_register(MCP_CANINTF, CANINTF_RX1IF, 0);
+        mcp2515_rx_index = 0;
     }
     else
     {
