@@ -183,6 +183,7 @@ static const struct RXBn_REGS
 } RXB[N_RXBUFFERS] = {
     {MCP_RXB0CTRL, MCP_RXB0SIDH, MCP_RXB0DATA, CANINTF_RX0IF},
     {MCP_RXB1CTRL, MCP_RXB1SIDH, MCP_RXB1DATA, CANINTF_RX1IF}};
+
 uint8_t mcp2515_rx_index = 0;
 
 uint8_t mcp2515_read_register(const REGISTER reg)
