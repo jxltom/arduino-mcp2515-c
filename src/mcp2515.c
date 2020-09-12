@@ -880,8 +880,8 @@ ERROR mcp2515_read_message(can_frame *frame)
     else if (stat & STAT_RX1IF)
     {
         rc = mcp2515_read_message_(RXB1, frame);
-        mcp2515_modify_register(MCP_CANINTF, CANINTF_RX1IF, 0);
         mcp2515_rx_index = 0;
+        mcp2515_modify_register(MCP_CANINTF, CANINTF_RX1IF, 0);
     }
     else
     {
